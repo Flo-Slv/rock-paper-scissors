@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
-type store = {
+type Store = {
   nickName: string;
   addNickName: (nickName: string) => void;
 };
 
-const useStore = create<store>((set) => ({
+const useStore = create<Store>((set) => ({
   nickName: "",
   addNickName: (nickName: string) =>
     set((state) => {
