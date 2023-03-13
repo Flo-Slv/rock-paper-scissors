@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "dist" /* Redirect output structure to the directory. */,
+    "lib": [
+      "es2020",
+      "dom"
+    ] /* Specify library files to be included in the compilation. */,
+    "target": "es2020" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', 'ES2021', or 'ESNEXT'. */,
+    "module": "esnext" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
+    "moduleResolution": "node",
+    "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
+    "types": [
+      "node"
+    ] /* Type declaration files to be included in compilation. */,
+    "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
+    "skipLibCheck": true /* Skip type checking of declaration files. */,
+    "jsx": "react" /* Specify JSX code generation: 'preserve', 'react-native', 'react', 'react-jsx' or 'react-jsxdev'. */
+  },
+  "include": ["server"],
+  "exclude": ["client", "dist", "node_modules"]
+}
