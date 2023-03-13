@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "rootDirs": ["src"],
     "outDir": "dist",
     "lib": ["es2020"],
     "target": "es2020",
@@ -8,6 +7,8 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "types": ["node"],
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
-  }
+  },
+  "exclude": ["dist", "node_modules"]
 }

@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Express } from "express";
 import http from "http";
 import cors from "cors";
 import bodyParser from "body-parser";
@@ -8,8 +8,8 @@ import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHt
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-import resolvers from "../graphql/resolvers/index";
-import typeDefs from "../graphql/typeDefs";
+import resolvers from "./graphql/resolvers/index";
+import typeDefs from "./graphql/typeDefs";
 
 // Load .env
 dotenv.config();
@@ -25,7 +25,7 @@ const mongo = () => {
 // Express setup w/ ApolloServer.
 const listen = async (port: number) => {
   // Express server.
-  const app = express();
+  const app: Express = express();
   const httpServer = http.createServer(app);
 
   // ApolloServer config.

@@ -5,7 +5,7 @@
   "main": "index.ts",
   "type": "module",
   "scripts": {
-    "watch": "nodemon --watch './**/*.{ts,graphql}' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' src/index.ts",
+    "watch": "nodemon --watch './**/*.{ts,graphql}' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' index.ts",
     "dev": "tsc-watch --onSuccess \"npm run watch\""
   },
   "keywords": [],
