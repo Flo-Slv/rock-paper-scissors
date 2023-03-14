@@ -7,6 +7,7 @@ import NickNameForm from "./components/NickNameForm";
 import Players from "./components/Players";
 import UserChoice from "./components/UserChoice";
 import PlayButton from "./components/PlayButton";
+import ResultModal from "./components/Modal";
 // import Results from "./components/Results";
 
 import "./style.css";
@@ -32,16 +33,56 @@ const App: React.FC = () => {
       </h1>
 
       {nickName.length ? (
-        <h2
-          className={clsx(
-            "text-xl sm:text-3xl md:text-4xl lg:text-5xl",
-            "flex justify-center"
-          )}
-        >
-          Let's play {nickName} !
-        </h2>
+        <div className="flex flex-row justify-between">
+          <div className="w-1/3"></div>
+
+          <div className="w-1/3">
+            <h2
+              className={clsx(
+                "text-xl sm:text-3xl md:text-4xl lg:text-5xl",
+                "flex justify-center"
+              )}
+            >
+              Let's play {nickName} !
+            </h2>
+          </div>
+
+          <div className="w-1/3 flex flex-col sm:flex-row justify-center">
+            <button
+              className={clsx(
+                "w-[80px] h-[50px] p-4 sm:p-6 lg:p-8",
+                "rounded-xl border border-gray-800 bg-gray-900 shadow-xl",
+                "text-indigo-300 hover:text-indigo-400 text-lg",
+                "flex justify-center items-center"
+              )}
+            >
+              Results
+            </button>
+            <ResultModal />
+          </div>
+        </div>
       ) : (
-        <NickNameForm />
+        <div className="flex flex-row justify-between">
+          <div className="w-1/3"></div>
+
+          <div className="w-1/3">
+            <NickNameForm />
+          </div>
+
+          <div className="w-1/3 flex flex-col sm:flex-row justify-center">
+            <button
+              className={clsx(
+                "w-[80px] h-[50px] p-4 sm:p-6 lg:p-8",
+                "rounded-xl border border-gray-800 bg-gray-900 shadow-xl",
+                "text-indigo-300 hover:text-indigo-400 text-lg",
+                "flex justify-center items-center"
+              )}
+            >
+              Results
+            </button>
+            <ResultModal />
+          </div>
+        </div>
       )}
 
       <div className={clsx("flex flex-col items-center justify-center")}>
