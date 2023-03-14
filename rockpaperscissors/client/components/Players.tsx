@@ -12,13 +12,14 @@ const Players = () => {
   const computerScore = store((state) => state.computerScore);
   const computerChoice = store((state) => state.computerChoice);
 
-  console.log("computerChoice: ", computerChoice);
-
   return (
-    <div
-      className={clsx("text-xl", "flex flex-col md:flex md:flex-row md:gap-14")}
-    >
-      <div className="w-[250px] h-[250px] rounded-xl border border-gray-800 bg-gray-900 p-4 shadow-xl sm:p-6 lg:p-8">
+    <div className="text-xl flex flex-col md:flex md:flex-row md:gap-14">
+      <div
+        className={clsx(
+          "w-[250px] h-[250px] p-4 sm:p-6 lg:p-8",
+          "rounded-xl border border-gray-800 bg-gray-900 shadow-xl"
+        )}
+      >
         <h3 className="mt-3 text-lg font-bold text-white sm:text-xl text-center">
           {nickName ? nickName : "Enter a nickname"}
         </h3>
