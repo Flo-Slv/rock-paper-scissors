@@ -1,11 +1,11 @@
 import React from "react";
-import clsx from "clsx";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 import validator from "validator";
 
 import TextField from "@mui/material/TextField";
+import { inputLabelClasses } from "@mui/material/InputLabel";
 import Button from "@mui/material/Button";
 
 import useStore from "../utils/zustand/store";
@@ -39,10 +39,7 @@ const NickNameForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={clsx(
-        "flex flex-col justify-center items-center gap-7",
-        "mt-14 mb-24 sm:mt-0 sm:mb-0"
-      )}
+      className="flex flex-col justify-center items-center gap-7"
     >
       <Controller
         name="nickName"
@@ -53,10 +50,17 @@ const NickNameForm = () => {
             {...field}
             id="nickName"
             type="text"
-            variant="standard"
-            className="ml-5 mr-5"
+            variant="outlined"
+            className="ml-5 mr-5 w-60"
+            InputLabelProps={{
+              sx: {
+                [`&.${inputLabelClasses.shrink}`]: {
+                  color: "black",
+                },
+              },
+            }}
             label="Nickname *"
-            placeholder="Enter a nickname"
+            placeholder="Enter a nickname to play."
             autoComplete="off"
             helperText={
               errors?.nickName ? errors?.nickName?.message?.toString() : ""

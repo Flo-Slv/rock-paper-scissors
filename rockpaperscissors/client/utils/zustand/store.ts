@@ -9,7 +9,8 @@ type Store = {
   setComputerChoice: () => void;
   userScore: number;
   computerScore: number;
-  setScore: (userResult: number) => void;
+  setScore: () => void;
+  winner: string;
 };
 
 const useStore = create<Store>((set) => ({
@@ -47,13 +48,30 @@ const useStore = create<Store>((set) => ({
     }),
   userScore: 0,
   computerScore: 0,
-  setScore: (userResult: number) =>
+  equality: Boolean(false),
+  winner: "",
+  setScore: () =>
     set((state) => {
+      const user = state.userChoice;
+      const computer = state.computerChoice;
+      let res = 0;
+
+      // User win
+      if (user === "rock" && computer === "scissors") res = 1;
+      else if (user === "paper" && computer === "rock") res = 1;
+      else if (user === "scissors" && computer === "paper") res = 1;
+      // Computer win
+      else if (user === "rock" && computer === "paper") res = -1;
+      else if (user === "paper" && computer === "scissors") res = -1;
+      else if (user === "scissors" && computer === "rock") res = -1;
+
       return {
         ...state,
-        userScore: userResult === 1 ? state.userScore + 1 : state.userScore - 1,
+        userScore: res === 1 ? state.userScore + 1 : state.userScore,
         computerScore:
-          userResult === 1 ? state.computerScore - 1 : state.computerScore + 1,
+          res === -1 ? state.computerScore + 1 : state.computerScore,
+        winner:
+          res === 1 ? state.nickName : res === -1 ? "Computer" : "equality",
       };
     }),
 }));

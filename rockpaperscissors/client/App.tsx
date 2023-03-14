@@ -4,8 +4,10 @@ import clsx from "clsx";
 import useStore from "./utils/zustand/store";
 
 import NickNameForm from "./components/NickNameForm";
-import Results from "./components/Results";
 import Players from "./components/Players";
+import UserChoice from "./components/UserChoice";
+import PlayButton from "./components/PlayButton";
+// import Results from "./components/Results";
 
 import "./style.css";
 
@@ -23,7 +25,7 @@ const App: React.FC = () => {
         className={clsx(
           "text-3xl sm:text-5xl md:text-6xl lg:text-7xl",
           "font-bold font-lobster",
-          "flex flex-row justify-center pt-16 mb-16"
+          "flex flex-row justify-center pt-10 mb-16"
         )}
       >
         Rock Paper Scissors
@@ -45,7 +47,8 @@ const App: React.FC = () => {
       <div className={clsx("flex flex-col items-center justify-center")}>
         <div className="w-28 flex flex-col gap-5 mb-16"></div>
         <Players />
-        <Results />
+        <UserChoice />
+        <PlayButton />
       </div>
     </div>
   );
