@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 
 import useStore from "./utils/zustand/store";
@@ -7,12 +7,17 @@ import NickNameForm from "./components/NickNameForm";
 import Players from "./components/Players";
 import UserChoice from "./components/UserChoice";
 import PlayButton from "./components/PlayButton";
-import ResultModal from "./components/Modal";
-// import Results from "./components/Results";
+import ResultModal from "./components/ResultModal";
 
 import "./style.css";
 
 const App: React.FC = () => {
+  const [openModal, setOpenModal] = useState(Boolean(false));
+
+  console.log("openModal: ", openModal);
+
+  const handleCloseModal = () => setOpenModal(Boolean(false));
+
   const nickName = useStore((state) => state.nickName);
 
   return (
@@ -55,10 +60,10 @@ const App: React.FC = () => {
                 "text-indigo-300 hover:text-indigo-400 text-lg",
                 "flex justify-center items-center"
               )}
+              onClick={() => setOpenModal(Boolean(true))}
             >
               Results
             </button>
-            <ResultModal />
           </div>
         </div>
       ) : (
@@ -77,10 +82,10 @@ const App: React.FC = () => {
                 "text-indigo-300 hover:text-indigo-400 text-lg",
                 "flex justify-center items-center"
               )}
+              onClick={() => setOpenModal(Boolean(true))}
             >
               Results
             </button>
-            <ResultModal />
           </div>
         </div>
       )}
@@ -91,6 +96,13 @@ const App: React.FC = () => {
         <UserChoice />
         <PlayButton />
       </div>
+
+      {openModal && (
+        <ResultModal
+          openModal={Boolean(true)}
+          handleCloseModal={() => handleCloseModal()}
+        />
+      )}
     </div>
   );
 };
