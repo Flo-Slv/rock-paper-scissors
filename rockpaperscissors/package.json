@@ -7,7 +7,7 @@
   "scripts": {
     "watch": "webpack -w & nodemon --watch './**/*.{ts,tsx,graphql}' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' server/index.ts",
     "dev": "tsc-watch --onSuccess \"npm run watch\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "Flo Slv",
@@ -31,6 +31,8 @@
     "zustand": "^4.3.6"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/node": "^18.15.1",
