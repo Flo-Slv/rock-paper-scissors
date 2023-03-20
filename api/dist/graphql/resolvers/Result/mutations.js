@@ -1,16 +1,22 @@
 import Result from "../../../models/Result";
 const resultMutations = {
     Mutation: {
-        createResult: async (_, { nickName, score }) => {
+        createResult: async (_, { nickName, userScore, computerScore }) => {
             try {
                 if (nickName.trim() === "")
                     throw new Error("nickName can not be empty !");
-                if (isNaN(score))
-                    throw new Error("score is not a number !");
+                if (isNaN(userScore))
+                    throw new Error("User score is not a number !");
+                if (isNaN(computerScore))
+                    throw new Error("Computer score is not a number !");
+                // computerScore can be 0, not userScore.
+                if (userScore <= 0 || computerScore < 0)
+                    throw new Error("Scores have to be positive !");
                 const date = new Date().toLocaleString("fr-FR", { timeZone: "CET" });
                 const newResult = await Result.create({
                     nickName: nickName,
-                    score: score,
+                    userScore: userScore,
+                    computerScore: computerScore,
                     date: date,
                 });
                 return newResult;

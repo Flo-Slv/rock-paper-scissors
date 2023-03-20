@@ -2,7 +2,8 @@ const typeDefs = `#graphql
   type Result {
     id: ID!
 		nickName: String!
-    score: Int!
+    userScore: Int!
+    computerScore: Int!
 		date: String!
   }
 
@@ -11,7 +12,7 @@ const typeDefs = `#graphql
   }
 
 	type Mutation {
-		createResult(nickName: String!, score: Int!): Result!
+		createResult(nickName: String!, userScore: Int!, computerScore: Int!): Result!
 	}
 `;
 
