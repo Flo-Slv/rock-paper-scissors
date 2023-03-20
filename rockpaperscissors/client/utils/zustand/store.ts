@@ -9,7 +9,9 @@ type Store = {
   setComputerChoice: () => void;
   userScore: number;
   computerScore: number;
+  resetScoresAndChoices: () => void;
   setScore: () => void;
+  equality: boolean;
   winner: string;
 };
 
@@ -48,8 +50,16 @@ const useStore = create<Store>((set) => ({
     }),
   userScore: 0,
   computerScore: 0,
-  equality: Boolean(false),
-  winner: "",
+  resetScoresAndChoices: () =>
+    set((state) => {
+      return {
+        ...state,
+        userChoice: "",
+        computerChoice: "",
+        userScore: 0,
+        computerScore: 0,
+      };
+    }),
   setScore: () =>
     set((state) => {
       const user = state.userChoice;
@@ -74,6 +84,8 @@ const useStore = create<Store>((set) => ({
           res === 1 ? state.nickName : res === -1 ? "Computer" : "equality",
       };
     }),
+  equality: Boolean(false),
+  winner: "",
 }));
 
 export default useStore;
