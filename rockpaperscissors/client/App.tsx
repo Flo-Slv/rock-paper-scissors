@@ -6,15 +6,14 @@ import useStore from "./utils/zustand/store";
 import NickNameForm from "./components/NickNameForm";
 import Players from "./components/Players";
 import UserChoice from "./components/UserChoice";
-import PlayButton from "./components/PlayButton";
+import PlayButton from "./components/buttons/PlayButton";
+import SaveButton from "./components/buttons/SaveButton";
 import ResultModal from "./components/ResultModal";
 
 import "./style.css";
 
 const App: React.FC = () => {
   const [openModal, setOpenModal] = useState(Boolean(false));
-
-  console.log("openModal: ", openModal);
 
   const handleCloseModal = () => setOpenModal(Boolean(false));
 
@@ -94,7 +93,11 @@ const App: React.FC = () => {
         <div className="w-28 flex flex-col gap-5 mb-16"></div>
         <Players />
         <UserChoice />
-        <PlayButton />
+
+        <div className="flex gap-6">
+          <PlayButton />
+          <SaveButton />
+        </div>
       </div>
 
       {openModal && (

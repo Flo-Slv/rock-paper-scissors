@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 
-import store from "../utils/zustand/store";
+import store from "../../utils/zustand/store";
 
 const PlayButton = () => {
   const nickName = store((state) => state.nickName);

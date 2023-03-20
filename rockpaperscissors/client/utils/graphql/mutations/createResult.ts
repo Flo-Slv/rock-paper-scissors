@@ -1,11 +1,20 @@
 import { gql } from "@apollo/client";
 
 const CREATE_RESULT = gql`
-  mutation CreateResult($nickName: String!, $score: Int!) {
-    createResult(nickName: $nickName, score: $score) {
+  mutation CreateResult(
+    $nickName: String!
+    $userScore: Int!
+    $computerScore: Int!
+  ) {
+    createResult(
+      nickName: $nickName
+      userScore: $userScore
+      computerScore: $computerScore
+    ) {
       id
       nickName
-      score
+      userScore
+      computerScore
       date
     }
   }

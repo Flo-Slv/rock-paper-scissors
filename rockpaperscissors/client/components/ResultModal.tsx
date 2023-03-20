@@ -21,7 +21,9 @@ const style = {
 const ResultModal = ({ openModal, handleCloseModal }) => {
   const [open, setOpen] = useState(Boolean(false));
 
-  const { loading, error, data } = useQuery(GET_RESULTS);
+  const { loading, error, data } = useQuery(GET_RESULTS, {
+    fetchPolicy: "no-cache",
+  });
 
   if (error) return <div>Error...</div>;
 
@@ -43,14 +45,17 @@ const ResultModal = ({ openModal, handleCloseModal }) => {
         aria-describedby="modal-result-description"
       >
         <Box sx={style}>
-          {data &&
+          {data && data?.getResults.length > 0 ? (
             data?.getResults.map(({ id, nickName, score, date }) => (
               <div key={id}>
                 <div>Nickname: {nickName}</div>
                 <div>Score: {score}</div>
                 <div>Date: {date}</div>
               </div>
-            ))}
+            ))
+          ) : (
+            <div>No result saved yet !</div>
+          )}
         </Box>
       </Modal>
     </div>

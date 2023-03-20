@@ -5,7 +5,8 @@ const GET_RESULTS = gql`
     getResults {
       id
       nickName
-      score
+      userScore
+      computerScore
       date
     }
   }
