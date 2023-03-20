@@ -35,30 +35,26 @@ const ResultModal = ({ openModal, handleCloseModal }) => {
   };
 
   return (
-    <div>
-      <h2>Leaderboard</h2>
-
-      <Modal
-        open={open || openModal}
-        onClose={handleClose}
-        aria-labelledby="modal-result-title"
-        aria-describedby="modal-result-description"
-      >
-        <Box sx={style}>
-          {data && data?.getResults.length > 0 ? (
-            data?.getResults.map(({ id, nickName, score, date }) => (
-              <div key={id}>
-                <div>Nickname: {nickName}</div>
-                <div>Score: {score}</div>
-                <div>Date: {date}</div>
-              </div>
-            ))
-          ) : (
-            <div>No result saved yet !</div>
-          )}
-        </Box>
-      </Modal>
-    </div>
+    <Modal
+      open={open || openModal}
+      onClose={handleClose}
+      aria-labelledby="modal-result-title"
+      aria-describedby="modal-result-description"
+    >
+      <Box sx={style}>
+        {data && data?.getResults.length > 0 ? (
+          data?.getResults.map(({ id, nickName, score, date }) => (
+            <div key={id}>
+              <div>Nickname: {nickName}</div>
+              <div>Score: {score}</div>
+              <div>Date: {date}</div>
+            </div>
+          ))
+        ) : (
+          <div>No result saved yet !</div>
+        )}
+      </Box>
+    </Modal>
   );
 };
 
