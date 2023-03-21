@@ -30,6 +30,20 @@ npm install
 
 <br />
 
+Create `.env` file
+```env
+touch .env
+```
+
+<br />
+
+Add this line into `.env`
+```sh
+MONGODB=mongodb+srv://FloSlv:SweepBright2023@sweep-bright.9q4kkbe.mongodb.net/rock-paper-scissors?retryWrites=true&w=majority
+```
+
+<br />
+
 Run API server.
 ```sh
 npm run dev
