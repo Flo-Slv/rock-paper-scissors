@@ -4,14 +4,16 @@ import { useQuery } from "@apollo/client";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 
-import GET_RESULTS from "../utils/graphql/queries/getResults";
+import GET_RESULTS from "../../utils/graphql/queries/getResults";
+
+import Result from "./Result";
 
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: "55%",
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -42,17 +44,7 @@ const ResultModal = ({ openModal, handleCloseModal }) => {
       aria-describedby="modal-result-description"
     >
       <Box sx={style}>
-        {data && data?.getResults.length > 0 ? (
-          data?.getResults.map(({ id, nickName, score, date }) => (
-            <div key={id}>
-              <div>Nickname: {nickName}</div>
-              <div>Score: {score}</div>
-              <div>Date: {date}</div>
-            </div>
-          ))
-        ) : (
-          <div>No result saved yet !</div>
-        )}
+        <Result data={data} />
       </Box>
     </Modal>
   );

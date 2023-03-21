@@ -8,7 +8,7 @@ import Players from "./components/Players";
 import UserChoice from "./components/UserChoice";
 import PlayButton from "./components/buttons/PlayButton";
 import SaveButton from "./components/buttons/SaveButton";
-import ResultModal from "./components/ResultModal";
+import ResultModal from "./components/results/ResultModal";
 
 import "./style.css";
 
