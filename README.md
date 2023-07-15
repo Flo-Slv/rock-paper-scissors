@@ -42,6 +42,8 @@ Add this line into `.env`
 MONGODB=mongodb+srv://FloSlv:SweepBright2023@sweep-bright.9q4kkbe.mongodb.net/rock-paper-scissors?retryWrites=true&w=majority
 ```
 
+Update: July 2023 - I deleted the mongo DB.
+
 <br />
 
 Run API server.
